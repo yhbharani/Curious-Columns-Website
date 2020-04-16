@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TopPattiComponent implements OnInit {
 
   searchRequest;
-profileStatus: boolean=false;
+profileStatus: boolean=true;
 
   constructor() { }
 

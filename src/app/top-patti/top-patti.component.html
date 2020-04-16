@@ -1,4 +1,4 @@
-<div class="top_header">
+
     <a routerLink=""><div class="logo_image"></div></a>
     <input type="text" class="search" placeholder="Search" [(ngModel)]="searchRequest" (keyup.enter)="onKeyUp()">
     <div *ngIf ="profileStatus==false ; then outside else inside"></div>
@@ -7,7 +7,15 @@
        
     </ng-template>
     <ng-template #inside>
+
         <div class="msgIcon"></div>
-        <div class="profileIcon"></div>
+
+        <div class="profileIcon">
+            <app-logout-popup class="dropdown"></app-logout-popup>
+        </div>
+
+        
+        
+        
     </ng-template>
-</div>
+

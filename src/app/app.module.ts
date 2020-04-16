@@ -9,6 +9,7 @@ import { FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule } from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -24,6 +25,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { LogoutPopupComponent } from './top-patti/logout-popup/logout-popup.component';
 
 
 
@@ -33,7 +35,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     TopPattiComponent,
     NavBarComponent,
     ContactUsComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    LogoutPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,

@@ -1,0 +1,92 @@
+/* Abhishek Soni */
+
+.name {
+	position: inherit;
+left: 8%;
+right: 35%;
+top: 17%;
+
+
+font-family: Cera Pro;
+font-style: normal;
+font-weight: 500;
+font-size: 1.7vw;
+line-height: 25px;
+
+color: #000000;
+}
+
+.sname {
+display: inline;
+	color:  #F05136;
+}
+
+
+
+/* 1711001 */
+
+.enrolno {
+	position: absolute;
+left: 7.2%;
+right: 74.8%;
+top: 34.62%;
+bottom: 55.49%;
+
+font-family: Cera Pro Light;
+font-style: normal;
+font-weight: 300;
+font-size: 1vw;
+line-height: 1.5vw;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+
+
+
+/* LOGOUT */
+
+.logout {
+	position: absolute;
+left: 9.6%;
+right: 60.8%;
+top: 56.59%;
+bottom: 30.77%;
+text-decoration: none;
+
+font-family: Cera Pro;
+font-style: normal;
+font-weight: bold;
+font-size: 1.4vw;
+line-height: 2vw;
+/* identical to box height */
+
+
+color: #A8A8A8;
+}
+
+
+
+
+/* HELP */
+
+.help {
+	position: absolute;
+left: 9.6%;
+right: 72.8%;
+top: 78.57%;
+bottom: 8.79%;
+text-decoration: none;
+
+font-family: Cera Pro;
+font-style: normal;
+font-weight: bold;
+font-size: 1.4vw;
+line-height: 2vw;
+/* identical to box height */
+
+
+color: #A8A8A8;
+}

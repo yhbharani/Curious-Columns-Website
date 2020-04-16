@@ -1,0 +1,6 @@
+<svg width="250" height="182" viewBox="0 0 250 182" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="22" width="250" height="160" fill="white"/>
+<path d="M235 0L247.99 22.5H222.01L235 0Z" fill="white"/>
+<line x1="12" y1="84.75" x2="235" y2="84.75" stroke="black" stroke-width="0.5"/>
+<line x1="12" y1="134.75" x2="235" y2="134.75" stroke="#BEBEBE" stroke-width="0.5"/>
+</svg>

@@ -1,9 +1,9 @@
-.top_header{
+body{
     padding:5px;
     width:90%;
     max-width:1440px ;
     margin:auto;
-    height: 100px;
+    height: auto;
     overflow: hidden;
 }
 .logo_image {
@@ -85,8 +85,7 @@ color: #f05136;
 	margin-left: 15%;
 	background :url(src\assets\messageIcon.svg);
 }
-
-.profileIcon {
+ .profileIcon {
     cursor: pointer;
 	display: inline-block;
 	position: relative;
@@ -95,3 +94,35 @@ color: #f05136;
 	margin-left: 21px;
 	background :url(src\assets\personIcon.svg);
 }
+  
+  .profileIcon .dropdown {
+    visibility: hidden;
+    width: 250px;
+    height: 180px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    top: 110%;
+    left: -220%;
+    margin-left: -60px;
+
+  background:url(src\assets\callout.svg);
+  background-repeat: no-repeat;background-size: 
+  cover;padding: 0px;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,1);
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,1);
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .profileIcon:hover .dropdown {
+    visibility: visible;
+  }
+
+  
