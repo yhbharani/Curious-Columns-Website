@@ -1,0 +1,74 @@
+a {text-decoration:none  ;}
+.nav_bar{
+    display: flex;
+    align-items: center ;
+    justify-content: center ;
+    padding:15px;
+    width:80%;
+    max-width:1440px ;
+    margin:auto;
+    
+}
+.nav_bar .option{
+    cursor: pointer;
+    position: relative;
+display: inline-block;
+vertical-align: middle;
+padding:10px;
+
+
+font-family: Cera Pro;
+font-style: normal;
+font-weight: normal;
+font-size: 1.2vw;
+line-height: 28px;
+color:#909090;
+}
+.nav_bar .option:hover{
+    position: relative;
+display: inline-block;
+vertical-align: middle;
+padding:10px;
+
+font-family: Cera Pro;
+font-style: normal;
+font-weight: normal;
+font-size: 1.3vw;
+line-height: 28px;
+    color:#f05136;
+}
+.nav_bar .selected{
+    position: relative;
+display: inline-block;
+vertical-align: middle;
+padding:10px;
+
+font-family: Cera Pro;
+font-style: normal;
+font-weight: normal;
+font-size: 1.2vw;
+line-height: 28px;
+    color:#f05136;
+}
+.nav_seprator {
+
+position: relative;
+display: inline-block;
+vertical-align: middle;
+margin-left: 3%;
+margin-right: 3%;
+height: 35px;
+width: 2px;
+
+background: #C4C4C4;
+}
+
+.heading {
+    font-family: Cera Pro Black;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 64px;
+    
+    color: #C4C4C4;
+    }

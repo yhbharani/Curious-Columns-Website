@@ -1,0 +1,13 @@
+<div class="top_header">
+    <a routerLink=""><div class="logo_image"></div></a>
+    <input type="text" class="search" placeholder="Search" [(ngModel)]="searchRequest" (keyup.enter)="onKeyUp()">
+    <div *ngIf ="profileStatus==false ; then outside else inside"></div>
+    <ng-template #outside>
+        <div class="login"> LOGIN</div>
+       
+    </ng-template>
+    <ng-template #inside>
+        <div class="msgIcon"></div>
+        <div class="profileIcon"></div>
+    </ng-template>
+</div>

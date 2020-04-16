@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "curious"
+    }
+  },
+  "defaultProject": "curious",
+  "cli": {
+    "analytics": "25b21915-0c1f-4d77-b6b3-04e69580613e"
+  }
 }
