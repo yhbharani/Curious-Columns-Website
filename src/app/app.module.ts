@@ -10,6 +10,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule } from '@angular/material/button';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { environment } from 'src/environments/environment';
+
+
 import { TopPattiComponent } from './top-patti/top-patti.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ListViewComponent } from './list-view/list-view.component';
@@ -38,6 +43,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     MatFormFieldModule,
     MatButtonModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     RouterModule.forRoot([ 
       { 
         path:'', 
