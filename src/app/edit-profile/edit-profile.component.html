@@ -1,0 +1,310 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col" style="margin-left: 7%;margin-right: 20px;display: inline;">
+            <div class="row" style="float: left;">
+                <div class="col" style="margin-top: 7%; font-size: 2.5vw;font-family: Cera Pro ;">
+                    <b>My Profile</b>
+                </div>
+                <button mat-stroked-button style="position: absolute;left: 45%;top: 1%;">
+                   Back to Profile
+                </button>
+        </div>
+
+        <div class="row" style="margin-top: 50px;float: left; width: 100%">
+
+            <div class="col-8" style="padding-top: 20px;font-family: Cera Pro Regular; font-size: 16px;">
+                   
+               <form class="basic-details" style="font-size: 18px;">
+
+                   <mat-form-field>
+                       <mat-label>Enrollment Number</mat-label>
+                       <input matInput placeholder="Ex. 17110032" value="">
+                   </mat-form-field>
+      
+                    <br>  
+
+                    <mat-form-field>
+                          <mat-label>First Name</mat-label>
+                          <input 
+                           required
+                           minlength=3
+                           ngModel name="firstName"
+                           #firstName = "ngModel"
+                           matInput placeholder="Ex. Sumit" 
+                           type="text">
+                           <mat-error *ngIf="firstName.touched && !firstName.valid">
+                               <div *ngIf="firstName.errors.required"> Required </div>
+                               <div *ngIf="firstName.errors.minlength"> minimum {{ firstName.errors.minlength.requiredLength }} letters </div>
+                           </mat-error>
+                    </mat-form-field>
+    
+                     <mat-form-field class="sameLine">
+                         <mat-label>Last Name</mat-label>
+                      <input 
+                       required
+                       minlength=3
+                       ngModel name="lastName"
+                       #lastName = "ngModel"
+                       matInput placeholder="Ex. Mustafa" 
+                       type="text">
+                       <mat-error *ngIf="lastName.touched && !lastName.valid">
+                           <div *ngIf="lastName.errors.required"> Required </div>
+                           <div *ngIf="lastName.errors.minlength"> minimum {{ lastName.errors.minlength.requiredLength }} letters </div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <br>
+     
+                    <mat-form-field >
+                        <mat-label>About Me</mat-label>
+                        <textarea matInput placeholder="Ex. I am an Architecture Student"
+                        matAutosizeMinRows = 10></textarea>
+                    </mat-form-field>
+                </form>
+            </div>                   
+        </div>
+        
+        <div class="row" style="margin-top: 40px;float: left; width: 100%">
+                
+            <div class="col" style="display: inline;font-family: Cera Pro Regular;font-size:2vw;color: #000000;">
+             Contact
+            </div>                
+            <hr style=" width: 85%; display: inline;border-color: #C4C4C4; height: 1px ;margin-right: 10px;">
+        
+        </div>
+
+        <div class="row" style="margin-top: 20px;float: left;width: 100%">
+
+            <div class="col-8" style="margin-left: 36px;overflow: hidden;padding-top: 20px;font-family: Cera Pro Regular; font-size: 16px;">
+                                      
+              <form class="contact-details" style="font-size: 18px;">
+
+                  <mat-form-field >
+                       <mat-label>Email</mat-label>
+                       <input 
+                       required
+                       ngModel name="email"
+                       #email = "ngModel"
+                       matInput placeholder="ybharani@ar.iitr.ac.in" 
+                       type="email"
+                       pattern=".+@ar.iitr.ac.in">
+                      <mat-error *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors.required"> Required </div>
+                        <div *ngIf="email.errors.pattern"> not Valid </div>
+                      </mat-error>
+                    </mat-form-field>
+      
+                    <br>  
+
+                    <mat-form-field>
+                      <mat-label>Phone No.</mat-label>
+                      <input 
+                      ngModel name="phone"
+                      #phone = "ngModel"
+                      matInput placeholder="" 
+                      type="tel">
+                      <mat-error *ngIf="phone.touched && !phone.valid">
+                         <div *ngIf="phone.errors.type"> it's a Number </div>
+                         <div *ngIf="phone.errors.minlength"> minimum {{ phone.errors.minlength.requiredLength }} numbers </div>
+                      </mat-error>
+                    </mat-form-field>
+                </form>
+
+            </div>                   
+        </div> 
+
+        <div class="row" style="margin-top: 40px;float: left;width: 100%">            
+            <div class="col" style="display: inline;font-family: Cera Pro Regular;font-size:2vw;line-height: 30px;color: #000000;">
+                    Social Accounts
+            </div>
+            <hr style="width: 70%; display: inline;border-color: #C4C4C4; height: 1px ;margin-right: 10px;">
+        </div>
+
+        <div class="row" style="margin-top: 20px;float: left; width: 100%">
+            <div class="col-8" style="margin-left: 36px;overflow: hidden;padding-top: 20px;font-family: Cera Pro Regular; font-size: 16px;">
+                    
+                <form class="contact-details" style="font-size: 18px;">
+                    
+
+                    <img src="./logos/004-linkedin.svg" style="width: 70px; height: 70px; margin-right: 30px;">
+
+                    <mat-form-field>
+                        <mat-label>LinkedIn</mat-label>
+                        <input 
+                        ngModel name="linkedin"
+                        #linkedin = "ngModel"
+                        matInput placeholder="Ex. linkedin.com/xyz" 
+                        type="email"
+                        pattern="^http(s)?:\/\/(www\.)?linkedin\.com\/in\/.*$" />
+                        <mat-error *ngIf="linkedin.touched && !linkedin.valid">
+                            <div *ngIf="linkedin.errors.pattern"> not Valid </div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <br>
+
+                    <img src="./logos/007-facebook.svg" style="width: 70px; height: 70px; margin-right: 30px;">
+
+                    <mat-form-field>
+                        <mat-label>Facebook</mat-label>
+                        <input 
+                        ngModel name="fb"
+                        #fb = "ngModel"
+                        matInput placeholder="Ex. facebook.com/xyz" 
+                        type="url"
+                        pattern="http://www\.facebook\.com\/(.+)|https://www\.facebook\.com\/(.+)" />
+                        <mat-error *ngIf="fb.touched && !fb.valid">
+                            <div *ngIf="fb.errors.pattern"> not Valid </div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <br>
+
+                    <img src="./logos/006-instagram.svg" style="width: 70px; height: 70px; margin-right: 30px;">
+
+                    <mat-form-field>
+                        <mat-label>Instagram</mat-label>
+                        <input 
+                        ngModel name="insta"
+                        #insta = "ngModel"
+                        matInput placeholder="Ex. instagram.com/xyz" 
+                        type="url"
+                        pattern="https?:\/\/(www\.)?instagram\.com\/([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)/?"/>
+                        <mat-error *ngIf="insta.touched && !insta.valid">
+                            <div *ngIf="insta.errors.pattern"> not Valid </div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <br>
+                    
+                    <img src="./logos/008-youtube.svg" style="width: 70px; height: 70px; margin-right: 30px;">
+
+                    <mat-form-field>
+                        <mat-label>YouTube</mat-label>
+                        <input 
+                        ngModel name="youtube"
+                        #youtube = "ngModel"
+                        matInput placeholder="Ex. youtube.com/xyz" 
+                        type="url"
+                        pattern="http://www\.youtube\.com\/(.+)|https://www\.youtube\.com\/(.+)" />
+                        <mat-error *ngIf="youtube.touched && !youtube.valid">
+                            <div *ngIf="youtube.errors.pattern"> not Valid </div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <br>
+                    
+                    <img src="./logos/004-linkedin.svg" style="width: 70px; height: 70px; margin-right: 30px;">
+
+                    <mat-form-field>
+                        <mat-label>LinkedIn Profile</mat-label>
+                        <input 
+                        ngModel name="linkedin"
+                        #linkedin = "ngModel"
+                        matInput placeholder="Ex. linkedin.com/xyz" 
+                        type="email"
+                        pattern="^http(s)?:\/\/(www\.)?linkedin\.com\/in\/.*$" />
+                        <mat-error *ngIf="linkedin.touched && !linkedin.valid">
+                            <div *ngIf="linkedin.errors.pattern"> not Valid </div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <br>
+
+                    <img src="./logos/004-linkedin.svg" style="width: 70px; height: 70px; margin-right: 30px;">
+
+                    <mat-form-field>
+                        <mat-label>LinkedIn Profile</mat-label>
+                        <input 
+                        ngModel name="linkedin"
+                        #linkedin = "ngModel"
+                        matInput placeholder="Ex. linkedin.com/xyz" 
+                        type="email"
+                        pattern="^http(s)?:\/\/(www\.)?linkedin\.com\/in\/.*$" />
+                        <mat-error *ngIf="linkedin.touched && !linkedin.valid">
+                            <div *ngIf="linkedin.errors.pattern"> not Valid </div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <br>
+
+                    <img src="./logos/004-linkedin.svg" style="width: 70px; height: 70px; margin-right: 30px;">
+
+                    <mat-form-field>
+                        <mat-label>LinkedIn Profile</mat-label>
+                        <input 
+                        ngModel name="linkedin"
+                        #linkedin = "ngModel"
+                        matInput placeholder="Ex. linkedin.com/xyz" 
+                        type="email"
+                        pattern="^http(s)?:\/\/(www\.)?linkedin\.com\/in\/.*$" />
+                        <mat-error *ngIf="linkedin.touched && !linkedin.valid">
+                            <div *ngIf="linkedin.errors.pattern"> not Valid </div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <br>
+
+
+                    
+
+                     
+                    </form>
+                </div>                   
+            </div>   
+
+        </div>
+        
+        <div class="col-3" style="padding:8px;height:20%;display: inline;">
+           
+      <div class="profile_pic" style="overflow: hidden;">
+        <a data-toggle="modal" data-target="#exampleModal">
+        <img src="Images/img.jpg" height="150px" > 
+        </a>    
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Choose Profile Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>  
+                <div class="name-1">
+                    John Doe
+
+                </div>
+                <div class="batch">
+                    B. arch 3rd year
+                </div>					
+                <button mat-raised-button color="warn">Save Changes</button>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

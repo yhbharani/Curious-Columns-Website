@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-
 import { NgModule } from '@angular/core';
-
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { RouterModule } from '@angular/router';
+import { FormsModule} from '@angular/forms';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatButtonModule } from '@angular/material/button';
 
 import { TopPattiComponent } from './top-patti/top-patti.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -12,16 +16,28 @@ import { ListViewComponent } from './list-view/list-view.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TopPattiComponent,
-    NavBarComponent
+    NavBarComponent,
+    ContactUsComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([ 
       { 
         path:'', 
@@ -40,7 +56,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         component:PageNotFoundComponent
       },
 
-    ])
+    ]),
+    BrowserAnimationsModule
 
   ],
   providers: [],
