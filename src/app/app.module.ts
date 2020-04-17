@@ -32,6 +32,7 @@ import { StudentListComponent } from './list-display/student-list/student-list.c
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 
+import { SProfileService } from './services/s-profile.service';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     ListDisplayComponent,
     StudentListComponent,
     ProfilePageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     BrowserAnimationsModule
 
   ],
-  providers: [],
+  providers: [SProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
-<p>student-list works! for year {{year}}</p>
-<ul>
-    <li *ngFor="let profile of StudentProfile$ | async">
-        {{profile.Enrollment}}
-    </li>
-</ul>
+<div *ngIf="profiles?.length > 0; else NoProfiles " >
 
+
+</div>
+<ng-template #NoProfiles>
+
+</ng-template>

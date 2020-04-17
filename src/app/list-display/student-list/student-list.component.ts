@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import{ AngularFirestore } from '@angular/fire/firestore';
-import { Subscription } from 'rxjs';
+import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Subscription, from } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Profile } from '../profile' 
+import { SProfileService } from '../../services/s-profile.service'
 
 
 @Component({
@@ -11,19 +13,24 @@ import { CommonModule } from '@angular/common';
 })
 export class StudentListComponent implements OnInit {
 
-  StudentProfile$;
+profiles: Profile[];
+  profilesCollection: AngularFirestoreCollection<Profile>;
  
 
   @Input() year: number;
-  constructor(private db: AngularFirestore) { 
+  constructor(private profileService: SProfileService) { 
 
-    this.StudentProfile$=db.collection('StudentProfile').valueChanges()
 
   }
 
 
 
   ngOnInit(): void {
+
+    this.profileService.getProfiles().subscribe(data =>
+    this.profiles=data
+    );
+
   }
 
 }
