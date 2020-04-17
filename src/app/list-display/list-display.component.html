@@ -2,43 +2,69 @@
 <div [ngSwitch]="view">
       
     <div *ngSwitchCase="'First'" class="heading">
+        
         BATCH OF 
         <div style="color: #F05136;opacity: 40%; display: inline;"> 
         {{currentYear-1}}-{{currentYear-2000+4}}
       </div>
+
+      <app-student-list [year]=1></app-student-list>
+    
     </div>
     <div *ngSwitchCase="'Second'"class="heading">
+        
         BATCH OF 
         <div style="color: #F05136;opacity: 40%; display: inline;"> 
         {{currentYear-2}}-{{currentYear-2000+3}}
         </div>
+
+        <app-student-list [year]=2></app-student-list>
+
     </div>    
     <div *ngSwitchCase="'Third'"class="heading">
+        
         BATCH OF 
         <div style="color: #F05136;opacity: 40%; display: inline;"> 
         {{currentYear-3}}-{{currentYear-2000+2}}
         </div>
+
+        <app-student-list [year]=3></app-student-list>
+
     </div>    
     <div *ngSwitchCase="'Fourth'"class="heading">
+        
         BATCH OF 
         <div style="color: #F05136;opacity: 40%; display: inline;"> 
         {{currentYear-4}}-{{currentYear-2000+1}}
         </div>
+
+        <app-student-list [year]=4></app-student-list>
+
     </div>
     <div *ngSwitchCase="'Fifth'"class="heading">
+        
         BATCH OF 
         <div style="color: #F05136;opacity: 40%; display: inline;"> 
         {{currentYear-5}}-{{currentYear-2000+0}}
         </div>
+
+        <app-student-list [year]=5></app-student-list>
+
     </div>
     <div *ngSwitchCase="'Faculty'" class="heading">
+        
         Faculty
     </div>
     <div *ngSwitchCase="'Articles'" class="heading">
+        
         Articles
     </div>
+
     <div *ngSwitchDefault>
         <h4>Home Selected</h4>
     </div>
 <hr>
 </div>
+
+
+

@@ -27,6 +27,7 @@ import { LogoutPopupComponent } from './top-patti/logout-popup/logout-popup.comp
 
 import { CommonModule } from '@angular/common';
 import { ListDisplayComponent } from './list-display/list-display.component';
+import { StudentListComponent } from './list-display/student-list/student-list.component';
 
 
 
@@ -38,9 +39,11 @@ import { ListDisplayComponent } from './list-display/list-display.component';
     ContactUsComponent,
     EditProfileComponent,
     LogoutPopupComponent,
-    ListDisplayComponent
+    ListDisplayComponent,
+    StudentListComponent
   ],
   imports: [
+    BrowserModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
