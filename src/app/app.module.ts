@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -28,6 +29,8 @@ import { LogoutPopupComponent } from './top-patti/logout-popup/logout-popup.comp
 import { CommonModule } from '@angular/common';
 import { ListDisplayComponent } from './list-display/list-display.component';
 import { StudentListComponent } from './list-display/student-list/student-list.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
 
@@ -40,13 +43,16 @@ import { StudentListComponent } from './list-display/student-list/student-list.c
     EditProfileComponent,
     LogoutPopupComponent,
     ListDisplayComponent,
-    StudentListComponent
+    StudentListComponent,
+    ProfilePageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -66,6 +72,10 @@ import { StudentListComponent } from './list-display/student-list/student-list.c
       { 
         path:'profile/:id/:username', 
         component: StudentProfileComponent
+      },
+      { 
+        path:'admin', 
+        component: AdminPageComponent
       },
       { 
         path:'**', 
