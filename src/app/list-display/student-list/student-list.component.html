@@ -1,7 +1,11 @@
 <div *ngIf="profiles?.length > 0; else NoProfiles " >
-
+<ul>
+    <li *ngFor="let profile of profiles">
+        <h5>{{profile.id}}</h5><h3>{{profile.Enrollment}}</h3>{{profile.First_Name}}<h4>{{profile.Last_Name}}</h4>
+    </li>
+</ul>
 
 </div>
 <ng-template #NoProfiles>
-
+There Are No Items To View
 </ng-template>
