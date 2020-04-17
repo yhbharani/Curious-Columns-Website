@@ -9,7 +9,6 @@ import { FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule } from '@angular/material/button';
-import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -18,7 +17,6 @@ import { environment } from 'src/environments/environment';
 
 import { TopPattiComponent } from './top-patti/top-patti.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { ListViewComponent } from './list-view/list-view.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -26,6 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LogoutPopupComponent } from './top-patti/logout-popup/logout-popup.component';
+
+import { CommonModule } from '@angular/common';
+import { ListDisplayComponent } from './list-display/list-display.component';
 
 
 
@@ -36,16 +37,17 @@ import { LogoutPopupComponent } from './top-patti/logout-popup/logout-popup.comp
     NavBarComponent,
     ContactUsComponent,
     EditProfileComponent,
-    LogoutPopupComponent
+    LogoutPopupComponent,
+    ListDisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatTooltipModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
@@ -56,7 +58,7 @@ import { LogoutPopupComponent } from './top-patti/logout-popup/logout-popup.comp
       },
       { 
         path:'list/:navView', 
-        component: ListViewComponent
+        component: ListDisplayComponent
       },
       { 
         path:'profile/:id/:username', 

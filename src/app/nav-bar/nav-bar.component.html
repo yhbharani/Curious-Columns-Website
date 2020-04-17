@@ -54,53 +54,9 @@
                    Faculty
     </a>
   
-  </div>
-  
-  <div *ngIf="batchYear>0;  " 
-    class="heading">
-      BATCH OF
-      <div style="color: #F05136;opacity: 40%; display: inline;"> 
-      {{2020-batchYear}}-{{25-batchYear}}
-      </div>
-  </div>
-  
-  <div *ngIf="batchYear==-1" 
-    class="heading">
-    {{navViewMode}}
-  </div>
-  
-    <hr>
-  
-  <div [ngSwitch]="navViewMode">
-      
-      <div *ngSwitchCase="'First'">
-        <h4>1st Year Selected</h4>
-      </div>
-      <div *ngSwitchCase="'Second'">
-        <h4>2nd Year Selected</h4>
-      </div>
-      <div *ngSwitchCase="'Third'">
-        <h4>3rd Year Selected</h4>
-      </div>
-      <div *ngSwitchCase="'Fourth'">
-        <h4>4th Year Selected</h4>
-      </div>
-      <div *ngSwitchCase="'Fifth'">
-        <h4>5th Year Selected</h4>
-      </div>
-      <div *ngSwitchCase="'Faculty'">
-        <h4>Faculty Selected</h4>
-      </div>
-      <div *ngSwitchCase="'Articles'">
-        <h4>Articles Selected</h4>
-      </div>
-      <div *ngSwitchDefault>
-        <h4>Home PAGE Selected</h4>
-      </div>
-  
-  </div>
-    <hr>
-  
+</div>
+
+ 
     
     
   
