@@ -32,4 +32,8 @@ export class SProfileService {
   getProfiles(){
     return this.profiles;
   }
+
+  addProfile(db: Profile){
+      this.dbCollection.add(db);
+  }
 }

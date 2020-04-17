@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Profile } from '../list-display/profile' 
+import { SProfileService } from '../services/s-profile.service'
 
 
 @Component({
@@ -10,16 +12,32 @@ import { Router } from '@angular/router';
 })
 export class AdminPageComponent implements OnInit {
 
-  adminForm: FormGroup;
+student: Profile= {
+  id: '',
+  Enrollment: 0,
+  First_Name: '',
+  Last_Name: ''
+}
 
- 
+adminForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
- 
-    private router: Router) { }
+
+  constructor(public profileService: SProfileService) { }
 
   ngOnInit(): void {
     
   }
+
+  onSubmit(){
+    if(this.student.Enrollment!=0 && this.student.First_Name!='')
+     {
+       this.profileService.addProfile(this.student);
+       this.student.id= '';
+       this.student.First_Name= '';
+       this.student.Last_Name= '';    
+     }
+  }
+
+
+  
 }
