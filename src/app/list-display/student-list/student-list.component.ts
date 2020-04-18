@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Subscription, from } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Profile } from '../profile' 
+import { Profile } from '../../services/profile' 
 import { SProfileService } from '../../services/s-profile.service'
 
 
