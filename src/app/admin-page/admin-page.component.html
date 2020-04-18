@@ -1,7 +1,39 @@
 
 
+          <!-- Form to Register new ID -->
+        
+            <div class="col" style="margin-top: 7%; font-size: 2.5vw;font-family: Cera Pro ;">
+                <b>Register New User</b>
+            </div>
+<br>
+<br>
+            <div style="border: none; font-family: Cera Pro bold">
+                <h5 >SignUp</h5>     
+            </div>
+<br>
+<br>            
+            <div style=" font-family: Cera Pro Regular; font-size: 18px;">
+                <label>Email Address</label>
+                <input [(ngModel)]="email" type="text" style="background-color: #F3F3F3; border-radius: 10px;">
+              <br>
+              <br><br>
+                <label>Possword</label>
+                <input [(ngModel)]="password" type="password" style="background-color: #F3F3F3; border-radius: 10px;">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+             <br><br><br>
+               
+            </div>
+            <div style="border: none; font-family: Cera Pro Regular;width: 10%">
+                <button (click)="signUp(email, password)" type="button" class="btn btn-danger" style="width: 50%;background: #F05136;border-radius: 10px">
+                    Sign Up
+                </button>
+         
+            </div>  
 <div class="row">
     <div class="col" style="margin-left: 7%;margin-right: 20px;display: inline;">
+
+
+          <!-- Form to add new user to database-->
         <div class="row" style="float: left;">
             <div class="col" style="margin-top: 7%; font-size: 2.5vw;font-family: Cera Pro ;">
                 <b>Add To Profile</b>
@@ -12,6 +44,10 @@
         </div>
 
         <div class="row" style="margin-top: 50px;float: left; width: 100%">
+
+
+
+          
 
             <div class="col-8" style="padding-top: 20px;font-family: Cera Pro; font-size: 16px;">
                    <!-- Form to Add Profile -->
@@ -174,10 +210,10 @@
         
     </ul>
     
-    </div>
-    <ng-template #NoProfiles>
+</div>
+<ng-template #NoProfiles>
     There Are No Items To View
-    </ng-template>
+</ng-template>
 
 
 

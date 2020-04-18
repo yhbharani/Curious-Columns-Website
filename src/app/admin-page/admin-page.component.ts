@@ -4,6 +4,7 @@ import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument }
 import { Router } from '@angular/router';
 import { Profile } from '../services/profile' 
 import { SProfileService } from '../services/s-profile.service'
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -33,17 +34,30 @@ profilesCollection: AngularFirestoreCollection<Profile>;
 editState: boolean=false;
 profileToEdit: Profile;
 
-
+email: string;
+password: string;
 
 adminForm: FormGroup;
 
 
-  constructor(public profileService: SProfileService) { }
+  constructor(public profileService: SProfileService,
+    public auth: AuthService ) { }
 
   ngOnInit(): void {
     this.profileService.getProfiles().subscribe(data =>
       this.profiles=data)
   }
+
+
+
+signUp(enroll, password){
+  this.auth.signUp(this.email, this.password);
+  this.password='';
+  this.email='';
+}
+
+
+
 
   onSubmit(){
     if(this.addStudent.Enrollment!=0 && this.addStudent.First_Name!='')

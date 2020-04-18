@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from 'src/environments/environment';
 
 
@@ -31,7 +32,9 @@ import { ListDisplayComponent } from './list-display/list-display.component';
 import { StudentListComponent } from './list-display/student-list/student-list.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { LoginComponent } from './login/login.component';
 
+import { AuthService } from './services/auth.service';
 import { SProfileService } from './services/s-profile.service';
 
 
@@ -47,6 +50,7 @@ import { SProfileService } from './services/s-profile.service';
     StudentListComponent,
     ProfilePageComponent,
     AdminPageComponent,
+    LoginComponent,
     
   ],
   imports: [
@@ -62,6 +66,7 @@ import { SProfileService } from './services/s-profile.service';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     RouterModule.forRoot([ 
       { 
         path:'', 
@@ -70,6 +75,10 @@ import { SProfileService } from './services/s-profile.service';
       { 
         path:'list/:navView', 
         component: ListDisplayComponent
+      },
+      { 
+        path:'login', 
+        component: LoginComponent
       },
       { 
         path:'profile/:Enrollment', 
@@ -88,7 +97,7 @@ import { SProfileService } from './services/s-profile.service';
     BrowserAnimationsModule
 
   ],
-  providers: [SProfileService],
+  providers: [SProfileService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
