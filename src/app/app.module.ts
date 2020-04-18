@@ -72,7 +72,7 @@ import { SProfileService } from './services/s-profile.service';
         component: ListDisplayComponent
       },
       { 
-        path:'profile/:id/:username', 
+        path:'profile/:Enrollment', 
         component: StudentProfileComponent
       },
       { 

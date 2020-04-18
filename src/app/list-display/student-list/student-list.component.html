@@ -2,6 +2,7 @@
 <ul>
     <li *ngFor="let profile of profiles">
         <h5>{{profile.id}}</h5><h3>{{profile.Enrollment}}</h3>{{profile.First_Name}}<h4>{{profile.Last_Name}}</h4>
+        <button [routerLink]="['/profile', profile.Enrollment]">Go to Profile</button>
     </li>
 </ul>
 

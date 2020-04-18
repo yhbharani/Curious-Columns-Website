@@ -13,7 +13,15 @@ import { SProfileService } from '../services/s-profile.service'
 })
 export class AdminPageComponent implements OnInit {
 
-student: Profile= {
+  addStudent: Profile={
+    Enrollment: 1,
+  First_Name: '',
+  Last_Name: ''
+  };
+
+
+  student: Profile= {
+  id: '',
   Enrollment: 1,
   First_Name: '',
   Last_Name: ''
@@ -38,12 +46,12 @@ adminForm: FormGroup;
   }
 
   onSubmit(){
-    if(this.student.Enrollment!=0 && this.student.First_Name!='')
+    if(this.addStudent.Enrollment!=0 && this.addStudent.First_Name!='')
      {
-       this.profileService.addProfile(this.student);
-       this.student.id= '';
-       this.student.First_Name= '';
-       this.student.Last_Name= '';    
+       this.profileService.addProfile(this.addStudent);
+       this.addStudent.First_Name= '';
+       this.addStudent.Last_Name= '';
+       this.addStudent.Enrollment= 1;    
      }
   }
 
@@ -55,16 +63,19 @@ adminForm: FormGroup;
 
   editProfile($event, student:Profile){
 
-    this.editState=true;
+    this.editState=!this.editState;
     this.profileToEdit= student;
+    this.student.First_Name= student.First_Name;
+    this.student.Last_Name= student.Last_Name;
+    this.student.Enrollment= student.Enrollment; 
     
 
   }
 
-  updateProfile($event, student: Profile){
-
-    this.profileService.updateProfile(student);
-
+  updateProfile($event, stu: Profile){
+    stu.id=this.profileToEdit.id;
+    this.profileService.updateProfile(stu);
+  
 
   }
 

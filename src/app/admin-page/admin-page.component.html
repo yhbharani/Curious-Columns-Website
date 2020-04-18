@@ -27,7 +27,7 @@
                         minlength=8
                         ngModel name="Enrollment"
                         #Enrollment = "ngModel"
-                        [(ngModel)]="student.Enrollment"
+                        [(ngModel)]="addStudent.Enrollment"
                         matInput placeholder="Ex. 17110032" value=""
                         type="text">
                         <mat-error *ngIf="Enrollment.touched && !Enrollment.valid">
@@ -45,7 +45,7 @@
                         minlength=3
                         ngModel name="firstName"
                         #firstName = "ngModel"
-                        [(ngModel)]="student.First_Name"
+                        [(ngModel)]="addStudent.First_Name"
                         matInput placeholder="Ex. Sumit" 
                         type="text">
                         <mat-error *ngIf="firstName.touched && !firstName.valid">
@@ -61,7 +61,7 @@
                         minlength=3
                         ngModel name="lastName"
                         #lastName = "ngModel"
-                        [(ngModel)]="student.Last_Name"
+                        [(ngModel)]="addStudent.Last_Name"
                         matInput placeholder="Ex. Mustafa" 
                         type="text">
                         <mat-error *ngIf="lastName.touched && !lastName.valid">

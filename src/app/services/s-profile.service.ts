@@ -45,9 +45,10 @@ export class SProfileService {
 
   }
 
-  updateProfile(student: Profile){
+  updateProfile(stu: Profile){
 
-    this.profileDoc=this.db.doc(`StudentProfile/${student.id}`);
-    this.profileDoc.update(student);
+    this.profileDoc=this.db.doc(`StudentProfile/${stu.id}`);
+    this.profileDoc.update(stu);
+   
   }
 }
