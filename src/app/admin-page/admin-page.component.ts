@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Profile } from '../services/profile' 
 import { SProfileService } from '../services/s-profile.service'
@@ -19,13 +20,19 @@ student: Profile= {
   Last_Name: ''
 }
 
+profiles: Profile[];
+profilesCollection: AngularFirestoreCollection<Profile>;
+
+
+
 adminForm: FormGroup;
 
 
   constructor(public profileService: SProfileService) { }
 
   ngOnInit(): void {
-    
+    this.profileService.getProfiles().subscribe(data =>
+      this.profiles=data)
   }
 
   onSubmit(){
@@ -36,6 +43,18 @@ adminForm: FormGroup;
        this.student.First_Name= '';
        this.student.Last_Name= '';    
      }
+  }
+
+  deleteProfile($event, student:Profile){
+
+    this.profileService.deleteProfile(student);
+
+  }
+
+  editProfile($event, student:Profile){
+
+    
+
   }
 
 

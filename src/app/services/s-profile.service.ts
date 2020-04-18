@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { Profile } from '../list-display/profile'
+import { Profile } from '../services/profile'
 import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 
@@ -12,6 +12,7 @@ export class SProfileService {
 
   profiles: Observable<Profile[]>;
   dbCollection: AngularFirestoreCollection<Profile>;
+  profileDoc: AngularFirestoreDocument<Profile>;
 
   constructor( public db: AngularFirestore) { 
 
@@ -33,7 +34,14 @@ export class SProfileService {
     return this.profiles;
   }
 
-  addProfile(db: Profile){
-      this.dbCollection.add(db);
+  addProfile(student: Profile){
+      this.dbCollection.add(student);
+  }
+
+  deleteProfile(student: Profile){
+
+    this.profileDoc=this.db.doc(`StudentProfile/${student.id}`);
+    this.profileDoc.delete();
+
   }
 }
