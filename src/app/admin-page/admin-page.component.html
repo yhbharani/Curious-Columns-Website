@@ -14,24 +14,8 @@
         <div class="row" style="margin-top: 50px;float: left; width: 100%">
 
             <div class="col-8" style="padding-top: 20px;font-family: Cera Pro; font-size: 16px;">
-                   
+                   <!-- Form to Add Profile -->
                 <form class="basic-details" style="font-size: 18px;" #add="ngForm">
-
-                    <mat-form-field>
-                        <mat-label>Profile ID</mat-label>
-                        <input 
-                        required
-                         minlength=8
-                         ngModel name="profileID"
-                         #profileID = "ngModel"
-                         [(ngModel)]="student.id"
-                         matInput placeholder="Ex. BArch1701" value=""
-                         type="text">
-                         <mat-error *ngIf="profileID.touched && !profileID.valid">
-                            <div *ngIf="profileID.errors.required"> Required </div>
-                            <div *ngIf="profileID.errors.minlength"> minimum {{ Enrollment.errors.minlength.requiredLength }} numbers </div>
-                        </mat-error>
-                    </mat-form-field>
        
                     <br>  
  
@@ -121,7 +105,73 @@
             <h5>{{profile.id}}</h5><h3>{{profile.Enrollment}}</h3>{{profile.First_Name}}<h4>{{profile.Last_Name}}</h4>
             <button mat-stroked-button color="primary" (click)="editProfile($event,profile)">Edit Profile</button>
             <button mat-raised-button color="warn" (click)="deleteProfile($event,profile)">Delete Profile</button>
+
+            <div *ngIf="editState && profileToEdit.id==profile.id">
+
+                <!-- Form to Edit Profile -->
+    
+                <form #edit="ngForm">
+    
+                    <mat-form-field>
+                        <mat-label>Enrollment Number</mat-label>
+                        <input 
+                        required
+                        minlength=8
+                        ngModel name="Enrollment"
+                        #Enrollment = "ngModel"
+                        [(ngModel)]="student.Enrollment"
+                        matInput placeholder="Ex. 17110032" value=""
+                        type="text">
+                        <mat-error *ngIf="Enrollment.touched && !Enrollment.valid">
+                            <div *ngIf="Enrollment.errors.required"> Required </div>
+                            <div *ngIf="Enrollment.errors.minlength"> minimum {{ Enrollment.errors.minlength.requiredLength }} numbers </div>
+                        </mat-error>
+                    </mat-form-field>
+      
+                    <br>  
+    
+                    <mat-form-field>
+                        <mat-label>First Name</mat-label>
+                        <input 
+                        required
+                        minlength=3
+                        ngModel name="firstName"
+                        #firstName = "ngModel"
+                        [(ngModel)]="student.First_Name"
+                        matInput placeholder="Ex. Sumit" 
+                        type="text">
+                        <mat-error *ngIf="firstName.touched && !firstName.valid">
+                            <div *ngIf="firstName.errors.required"> Required </div>
+                            <div *ngIf="firstName.errors.minlength"> minimum {{ firstName.errors.minlength.requiredLength }} letters </div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field class="sameLine">
+                        <mat-label>Last Name</mat-label>
+                        <input 
+                        required
+                        minlength=3
+                        ngModel name="lastName"
+                        #lastName = "ngModel"
+                        [(ngModel)]="student.Last_Name"
+                        matInput placeholder="Ex. Mustafa" 
+                        type="text">
+                        <mat-error *ngIf="lastName.touched && !lastName.valid">
+                            <div *ngIf="lastName.errors.required"> Required </div>
+                            <div *ngIf="lastName.errors.minlength"> minimum {{ lastName.errors.minlength.requiredLength }} letters </div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                </form>
+    
+                <button mat-stroked-button (click)="updateProfile($event, student)" [disabled]="!edit.valid">
+                    Update to StudentList
+                </button>
+    
+            </div>
         </li>
+        
+        
     </ul>
     
     </div>

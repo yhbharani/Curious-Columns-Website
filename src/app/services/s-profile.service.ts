@@ -44,4 +44,10 @@ export class SProfileService {
     this.profileDoc.delete();
 
   }
+
+  updateProfile(student: Profile){
+
+    this.profileDoc=this.db.doc(`StudentProfile/${student.id}`);
+    this.profileDoc.update(student);
+  }
 }

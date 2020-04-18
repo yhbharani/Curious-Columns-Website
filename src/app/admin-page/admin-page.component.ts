@@ -14,14 +14,16 @@ import { SProfileService } from '../services/s-profile.service'
 export class AdminPageComponent implements OnInit {
 
 student: Profile= {
-  id: '',
-  Enrollment: 0,
+  Enrollment: 1,
   First_Name: '',
   Last_Name: ''
 }
 
 profiles: Profile[];
 profilesCollection: AngularFirestoreCollection<Profile>;
+
+editState: boolean=false;
+profileToEdit: Profile;
 
 
 
@@ -53,7 +55,16 @@ adminForm: FormGroup;
 
   editProfile($event, student:Profile){
 
+    this.editState=true;
+    this.profileToEdit= student;
     
+
+  }
+
+  updateProfile($event, student: Profile){
+
+    this.profileService.updateProfile(student);
+
 
   }
 
