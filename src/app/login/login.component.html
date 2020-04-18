@@ -1,19 +1,37 @@
+<div class="col" style="margin-top: 7%; font-size: 2.5vw;font-family: Cera Pro ;">
+  <b>LOGIN</b>
+</div>
+<br>
+<br>
 <div style="border: none; font-family: Cera Pro bold">
-    <h5 >LOGIN</h5>     
+
+  <h5 >login page</h5>     
+
 </div>
+<br>
+<br>            
+
 <div style=" font-family: Cera Pro Regular; font-size: 18px;">
-    <label>Enrollment Number</label>
-    <input type="email" style="background-color: #F3F3F3; border-radius: 10px;">
+
+ 
+  
+  <label>Email Address</label>
+  <input [(ngModel)]="email" type="text" style="background-color: #F3F3F3; border-radius: 10px;">
+
   <br>
-    <label>Possword</label>
-    <input type="password" style="background-color: #F3F3F3; border-radius: 10px;">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
- <br>
-    <div >
-      <input type="checkbox">
-      <label>Remember Me</label>
-    </div>
+<br><br>
+  
+<label>Possword</label>
+  <input [(ngModel)]="password" type="password" style="background-color: #F3F3F3; border-radius: 10px;">
+  
+<br><br><br>
+
+
 </div>
+
 <div style="border: none; font-family: Cera Pro Regular;width: 10%">
-    <button type="button" class="btn btn-danger" style="width: 75%;background: #F05136;border-radius: 10px">LOG IN</button>
-</div>
+  <button (click)="logIn()" type="button" class="btn btn-danger" style="width: 50%;background: #F05136;border-radius: 10px">
+      
+    Log In
+  
+  </button>

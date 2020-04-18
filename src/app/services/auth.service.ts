@@ -15,12 +15,24 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth, public router: Router) { }
 
+logIn(email: string, password: string){
+  console.log(email+password);
+  this.afAuth.auth.signInWithEmailAndPassword(email, password).then(
+    value=> { console.log('Nice It Worked');
+  this.router.navigate(['profile/:Enrollment']);
+}
+  ).catch( err=> { console.log('What is wrong with you?',err.message);
+});
+}
 
-  signUp(email, password){
+
+  signUp(email: string, password: string){
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(
       value => { console.log('Sucess ' + value);
     this.router.navigate(['profile/:Enrollment']);
                } 
-    ).catch()
+    ).catch( err=> { console.log('What is wrong with you?',err.message);
+  })
   }
+
 }

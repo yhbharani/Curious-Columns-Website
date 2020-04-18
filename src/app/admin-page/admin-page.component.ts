@@ -50,7 +50,7 @@ adminForm: FormGroup;
 
 
 
-signUp(enroll, password){
+signUp(){
   this.auth.signUp(this.email, this.password);
   this.password='';
   this.email='';
