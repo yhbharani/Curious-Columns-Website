@@ -9,17 +9,20 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit  {
 
-  profile: any;
+  profile: firebase.User;
 
   constructor(public auth: AuthService, private route: Router) { }
 
   ngOnInit(): void {    
-    this.auth.getUserState().subscribe( user => {  this.profile = user; console.log( user) });
+    this.auth.getUserState().subscribe( user => {this.profile = user;});
   }
 
   logOut(){
-    this.auth.logOut();
+    console.log("Logout Clicked");
+   this.auth.logOut();
   }
+
+
 
   logIn(){
     this.route.navigate(['login']);

@@ -10,6 +10,6 @@
 <br>
 </div>
 
-<button *ngIf="profile" (click)="logOut">Log Out</button>
-<button *ngIf="!profile" (click)="logIn">Log In</button>
+<button *ngIf="!profile" (click)="logIn()">Log In</button>
 <button *ngIf="!profile" (click)="register()">Register</button>
+<button *ngIf="profile" (click)="logOut()">Log Out</button>

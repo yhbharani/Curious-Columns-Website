@@ -16,29 +16,18 @@ export class AuthService {
 private eventAuthError = new BehaviorSubject<string>(""); 
 public eventAuthError$= this.eventAuthError.asObservable();
 
-  user: Observable<firebase.User>;
+
   newProfile: any;
 
   
 
   constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFirestore) { }
 
-logIn(email: string, password: string){
-  console.log(email+password);
-  this.afAuth.auth.signInWithEmailAndPassword(email, password).then(
-    profileInfo=> { console.log('Nice It Worked');
-  this.router.navigate(['profile',email]);
-}
-  ).catch( err=> { console.log('What is wrong with you?',err.message);
-});
-}
 
-addStudent: Profile;
 
 
 
   getUserState(){
-    
     return this.afAuth.authState;
   };
   
@@ -48,7 +37,7 @@ addStudent: Profile;
         console.log('Sucess : ' + profileInfo);
         this.newProfile= student;
         profileInfo.user.updateProfile({
-          displayName: student.First_Name+''+ student.Last_Name
+          displayName: student.First_Name+' '+ student.Last_Name
         });
         this.insertProfileData(profileInfo).then(()=>{       
          this.router.navigate(['/profile',student.Enrollment]);
@@ -70,8 +59,12 @@ addStudent: Profile;
   };
 
   logOut(){
-    return this.afAuth.auth.signOut()
-  };
-  
+    console.log("login function reached");
+    console.log(this.afAuth);
+
+   return this.afAuth.auth.signOut().then(()=>{       
+      this.router.navigate(['/admin']);
+    })
+  }
 
 }
