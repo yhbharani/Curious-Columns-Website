@@ -1,1 +1,15 @@
 <h2>This is Home Page</h2>
+
+<div *ngIf="profile">
+<br>
+
+<h2>Your Name:  {{ profile?.displayName }}   </h2>
+<br>
+
+<h3>Your email:  {{ profile?.email }}</h3>
+<br>
+</div>
+
+<button *ngIf="profile" (click)="logOut">Log Out</button>
+<button *ngIf="!profile" (click)="logIn">Log In</button>
+<button *ngIf="!profile" (click)="register()">Register</button>

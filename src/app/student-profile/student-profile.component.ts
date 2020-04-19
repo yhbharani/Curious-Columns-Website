@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-
 
 @Component({
   selector: 'app-student-profile',
@@ -9,13 +7,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class StudentProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  logOut(){
-    this.auth.logOut();
-  }
+ 
 
 }

@@ -16,7 +16,6 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from 'src/environments/environment';
 
-
 import { TopPattiComponent } from './top-patti/top-patti.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';

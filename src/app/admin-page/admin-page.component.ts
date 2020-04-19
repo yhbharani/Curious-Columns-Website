@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
 import { Profile } from '../services/profile' 
 import { SProfileService } from '../services/s-profile.service'
 import { AuthService } from '../services/auth.service';
@@ -20,6 +19,14 @@ export class AdminPageComponent implements OnInit {
   Last_Name: ''
   };
 
+  authError: any;
+  newStudent: Profile={
+    Enrollment: 1,
+    email:'',
+    password:'',
+  First_Name: '',
+  Last_Name: ''
+  };
 
   student: Profile= {
   id: '',
@@ -34,8 +41,7 @@ profilesCollection: AngularFirestoreCollection<Profile>;
 editState: boolean=false;
 profileToEdit: Profile;
 
-email: string;
-password: string;
+
 
 adminForm: FormGroup;
 
@@ -46,14 +52,14 @@ adminForm: FormGroup;
   ngOnInit(): void {
     this.profileService.getProfiles().subscribe(data =>
       this.profiles=data)
+
+      this.auth.eventAuthError$.subscribe(data=>{this.authError=data;})
   }
 
 
 
 signUp(){
-  this.auth.signUp(this.email, this.password);
-  this.password='';
-  this.email='';
+  this.auth.signUp( this.newStudent );   
 }
 
 
