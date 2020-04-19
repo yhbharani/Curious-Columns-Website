@@ -8,19 +8,19 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  email: string;
-  password: string;
+  authError: any;
+  Email: string;
+  Password: string;
 
   constructor(public auth: AuthService) { }
  
 
   ngOnInit(): void {
+    this.auth.eventAuthError$.subscribe(data=>{this.authError=data;})
   }
 
   logIn(){
-    this.auth.logIn(this.email, this.password);
-    this.password='';
-    this.email='';
+    this.auth.logIn(this.Email, this.Password);
   }
 
 }

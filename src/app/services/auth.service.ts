@@ -58,6 +58,16 @@ public eventAuthError$= this.eventAuthError.asObservable();
        })
   };
 
+  logIn(email: string, password: string){
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).then(
+      profileInfo => { 
+        console.log('Sucess : ' + profileInfo);   
+         this.router.navigate(['']);
+      }
+    ).catch( error=> { this.eventAuthError.next(error);});
+  }
+  
+
   logOut(){
     console.log("login function reached");
     console.log(this.afAuth);
