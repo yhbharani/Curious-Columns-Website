@@ -19,7 +19,6 @@ import { environment } from 'src/environments/environment';
 import { TopPattiComponent } from './top-patti/top-patti.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -35,6 +34,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './services/auth.service';
 import { SProfileService } from './services/s-profile.service';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -50,6 +50,7 @@ import { SProfileService } from './services/s-profile.service';
     ProfilePageComponent,
     AdminPageComponent,
     LoginComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -69,7 +70,7 @@ import { SProfileService } from './services/s-profile.service';
     RouterModule.forRoot([ 
       { 
         path:'', 
-        component: HomePageComponent
+        component: HomeComponent
       },
       { 
         path:'list/:navView', 
