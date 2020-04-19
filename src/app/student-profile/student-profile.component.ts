@@ -9,9 +9,13 @@ import { AuthService } from '../services/auth.service';
 })
 export class StudentProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    this.auth.logOut();
   }
 
 }

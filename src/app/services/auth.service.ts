@@ -19,20 +19,26 @@ logIn(email: string, password: string){
   console.log(email+password);
   this.afAuth.auth.signInWithEmailAndPassword(email, password).then(
     value=> { console.log('Nice It Worked');
-  this.router.navigate(['profile/:Enrollment']);
+  this.router.navigate(['profile',email]);
 }
   ).catch( err=> { console.log('What is wrong with you?',err.message);
 });
 }
 
 
+logOut(){
+  this.afAuth.auth.signOut();
+  this.router.navigate(['/admin']);
+};
+
+
   signUp(email: string, password: string){
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(
       value => { console.log('Sucess ' + value);
-    this.router.navigate(['profile/:Enrollment']);
+    this.router.navigate(['/profile',email]);
                } 
     ).catch( err=> { console.log('What is wrong with you?',err.message);
-  })
+  });
   }
 
 }
