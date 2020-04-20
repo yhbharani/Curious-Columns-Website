@@ -1,9 +1,9 @@
 
     <a routerLink=""><div class="logo_image"></div></a>
     <input type="text" class="search" placeholder="Search" [(ngModel)]="searchRequest" (keyup.enter)="onKeyUp()">
-    <div *ngIf ="profileStatus==false ; then outside else inside"></div>
+    <div *ngIf ="!profile ; then outside else inside"></div>
     <ng-template #outside>
-        <div class="login"> LOGIN</div>
+        <div class="login" (click)="logIn()"> LOGIN</div>
        
     </ng-template>
     <ng-template #inside>

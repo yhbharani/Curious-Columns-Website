@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-student-profile',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentProfileComponent implements OnInit {
 
-  constructor() { }
+ 
 
-  ngOnInit(): void {
+  constructor(public auth: AuthService, private route: Router) { }
+
+  ngOnInit(): void {    
   }
 
  

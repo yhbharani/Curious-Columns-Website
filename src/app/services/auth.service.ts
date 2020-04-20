@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore , AngularFirestoreCollection} from '@angular/fire/firestore';
+import { AngularFirestore , AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Observable, from } from 'rxjs';
+import { Observable, BehaviorSubject} from 'rxjs';
 import { Profile } from './profile';
-import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -13,19 +12,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-private eventAuthError = new BehaviorSubject<string>(""); 
-public eventAuthError$= this.eventAuthError.asObservable();
+ private eventAuthError = new BehaviorSubject<string>(""); 
+ public eventAuthError$= this.eventAuthError.asObservable();
 
+ user: Observable<Profile>;
 
-  newProfile: any;
+ newProfile: any;
 
-  
-
-  constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFirestore) { }
-
-
-
-
+ constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFirestore) { }
 
   getUserState(){
     return this.afAuth.authState;
@@ -54,7 +48,8 @@ public eventAuthError$= this.eventAuthError.asObservable();
          password: this.newProfile.password,
          Enrollment: this.newProfile.Enrollment,
          First_Name:this.newProfile.First_Name,
-         Last_Name: this.newProfile.Last_Name
+         Last_Name: this.newProfile.Last_Name,
+         
        })
   };
 
@@ -62,7 +57,7 @@ public eventAuthError$= this.eventAuthError.asObservable();
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then(
       profileInfo => { 
         console.log('Sucess : ' + profileInfo);   
-         this.router.navigate(['']);
+         this.router.navigate(['/profile/'+ email]);
       }
     ).catch( error=> { this.eventAuthError.next(error);});
   }
@@ -73,7 +68,7 @@ public eventAuthError$= this.eventAuthError.asObservable();
     console.log(this.afAuth);
 
    return this.afAuth.auth.signOut().then(()=>{       
-      this.router.navigate(['/admin']);
+      this.router.navigate(['']);
     })
   }
 
