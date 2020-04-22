@@ -1,1 +1,9 @@
 <p>profile-page works!</p>
+<h3>You are on the Profile Page of</h3><h2>{{ email }}</h2>
+
+<div *ngIf="profileService.profile as profile; else notFound">
+    <h2>{{ profile.First_Name }} </h2><h3>{{ profile.Last_Name }}</h3>
+</div>
+<ng-template #notFound>
+    <h2>Profile Not Found</h2>
+</ng-template>

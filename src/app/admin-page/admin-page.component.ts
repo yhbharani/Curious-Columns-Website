@@ -21,11 +21,11 @@ export class AdminPageComponent implements OnInit {
 
   authError: any;
   newStudent: Profile={
-    Enrollment: 1,
-    email:'',
-    password:'',
-  First_Name: '',
-  Last_Name: ''
+   Enrollment: 1,
+   email:'',
+   password:'',
+   First_Name: '',
+   Last_Name: ''
   };
 
   student: Profile= {

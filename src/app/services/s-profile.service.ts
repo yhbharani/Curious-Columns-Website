@@ -1,18 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { Profile } from '../services/profile'
 import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class SProfileService {
+export class SProfileService implements OnDestroy {
 
   profiles: Observable<Profile[]>;
   dbCollection: AngularFirestoreCollection<Profile>;
   profileDoc: AngularFirestoreDocument<Profile>;
+  profile: any;
+  subscription: Subscription;
+
 
   constructor( public db: AngularFirestore) { 
 
@@ -34,6 +36,15 @@ export class SProfileService {
     return this.profiles;
   }
 
+  getProfileData(email: string){
+    this.profile=this.db.collection("StudentProfile", ref => ref.where('email', '==', email)).valueChanges();
+    
+    this.subscription=this.profile.subscribe(users => { 
+      this.profile = users[0];
+    });
+    
+  }
+
   addProfile(student: Profile){
       this.dbCollection.add(student);
   }
@@ -51,4 +62,13 @@ export class SProfileService {
     this.profileDoc.update(stu);
    
   }
+
+ ngOnDestroy(): void{
+   this.subscription.unsubscribe();
+ }
+
+
 }
+
+
+

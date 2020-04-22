@@ -81,7 +81,7 @@ import { HomeComponent } from './home/home.component';
         component: LoginComponent
       },
       { 
-        path:'profile', 
+        path:'profile/:email', 
         component: ProfilePageComponent
       },
       { 

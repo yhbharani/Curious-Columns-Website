@@ -16,7 +16,7 @@ export class AuthService {
  public eventAuthError$= this.eventAuthError.asObservable();
 
  user$: Observable<Profile>; //This is the Observable for the currently Logged In User 
-
+ 
  newProfile: any; //This variable holds details of the new user
 
  constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFirestore) 
@@ -52,7 +52,7 @@ export class AuthService {
 
   insertProfileData(profileInfo: firebase.auth.UserCredential) {
        return this.db.doc(`StudentProfile/${profileInfo.user.uid}`).set({
-         uid:this.newProfile.uid,
+         uid: profileInfo.user.uid,
          email: this.newProfile.email,
          password: this.newProfile.password,
          Enrollment: this.newProfile.Enrollment,
