@@ -29,7 +29,7 @@ export class AdminPageComponent implements OnInit {
   };
 
   student: Profile= {
-  id: '',
+  uid: '',
   Enrollment: 1,
   First_Name: '',
   Last_Name: ''
@@ -93,7 +93,7 @@ signUp(){
   }
 
   updateProfile($event, stu: Profile){
-    stu.id=this.profileToEdit.id;
+    stu.uid=this.profileToEdit.uid;
     this.profileService.updateProfile(stu);
   
 

@@ -1,4 +1,11 @@
-<div class="name">Abhishek<div class="sname">Soni</div></div>
-<div class="enrolno">17110001</div>
-<a class="logout" (click)="logOut()">LOGOUT</a>
-<a class="help">HELP</a>
+<div *ngIf="auth.user$ | async as user; else Error">
+
+    <div class="name">{{ user.First_Name }}<div class="sname">{{ user.Last_Name }}</div></div>
+    <div class="enrolno">{{ user.Enrollment }}</div>
+    <a class="logout" (click)="logOut()">LOGOUT</a>
+    <a class="help">HELP</a>
+
+</div> 
+<ng-template #Error>
+    Error
+</ng-template>

@@ -1,15 +1,23 @@
 <h2>This is Home Page</h2>
 
-<div *ngIf="profile">
+<div *ngIf="auth.user$ | async as user ; else login">
 <br>
 
-<h2>Your Name:  {{ profile?.displayName }}   </h2>
+<h2>Your Name:  {{ user.First_Name }}   </h2>
 <br>
+<h2>Your Last Name:  {{ user.Last_Name }}   </h2>
+<br>
+<h2>Your Enrollment:  {{ user.Enrollment }}   </h2>
+<br>
+<h3>Your email:  {{ user.email }}</h3>
+<br>
+<button (click)="logOut()">Log Out</button>
 
-<h3>Your email:  {{ profile?.email }}</h3>
-<br>
 </div>
 
-<button *ngIf="!profile" (click)="logIn()">Log In</button>
-<button *ngIf="!profile" (click)="register()">Register</button>
-<button *ngIf="profile" (click)="logOut()">Log Out</button>
+
+<ng-template #login>
+    Go to login page
+    <button  (click)="logIn()">Log In</button>
+    <button  (click)="register()">Register</button>
+</ng-template>

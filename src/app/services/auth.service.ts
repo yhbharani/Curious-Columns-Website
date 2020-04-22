@@ -3,9 +3,9 @@ import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore , AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Observable, BehaviorSubject} from 'rxjs';
+import { Observable, BehaviorSubject, of} from 'rxjs';
 import { Profile } from './profile';
-
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +15,21 @@ export class AuthService {
  private eventAuthError = new BehaviorSubject<string>(""); 
  public eventAuthError$= this.eventAuthError.asObservable();
 
- user: Observable<Profile>;
+ user$: Observable<Profile>; //This is the Observable for the currently Logged In User 
 
- newProfile: any;
+ newProfile: any; //This variable holds details of the new user
 
- constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFirestore) { }
-
+ constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFirestore) 
+ { //Assigning user$ to currently loggeg in User
+   this.user$=this.afAuth.authState.pipe(                                  
+    switchMap(data=>{
+      if(data){
+        return this.db.doc<Profile>(`StudentProfile/${data.uid}`).valueChanges();
+       } else{return of(null);}
+     })
+   );
+ }
+ 
   getUserState(){
     return this.afAuth.authState;
   };
@@ -28,10 +37,9 @@ export class AuthService {
   signUp(student: Profile){
     this.afAuth.auth.createUserWithEmailAndPassword(student.email, student.password).then(
       profileInfo => { 
-        console.log('Sucess : ' + profileInfo);
         this.newProfile= student;
         profileInfo.user.updateProfile({
-          displayName: student.First_Name+' '+ student.Last_Name
+          displayName: student.First_Name+'  '+ student.Last_Name
         });
         this.insertProfileData(profileInfo).then(()=>{       
          this.router.navigate(['/profile',student.Enrollment]);
@@ -44,6 +52,7 @@ export class AuthService {
 
   insertProfileData(profileInfo: firebase.auth.UserCredential) {
        return this.db.doc(`StudentProfile/${profileInfo.user.uid}`).set({
+         uid:this.newProfile.uid,
          email: this.newProfile.email,
          password: this.newProfile.password,
          Enrollment: this.newProfile.Enrollment,

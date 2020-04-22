@@ -81,8 +81,8 @@ import { HomeComponent } from './home/home.component';
         component: LoginComponent
       },
       { 
-        path:'profile/:Enrollment', 
-        component: StudentProfileComponent
+        path:'profile', 
+        component: ProfilePageComponent
       },
       { 
         path:'admin', 

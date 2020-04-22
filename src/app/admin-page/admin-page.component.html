@@ -156,7 +156,7 @@
             <button mat-stroked-button color="primary" (click)="editProfile($event,profile)">Edit Profile</button>
             <button mat-raised-button color="warn" (click)="deleteProfile($event,profile)">Delete Profile</button>
 
-            <div *ngIf="editState && profileToEdit.id==profile.id">
+            <div *ngIf="editState && profileToEdit.uid==profile.uid">
 
                 <!-- Form to Edit Profile -->
     

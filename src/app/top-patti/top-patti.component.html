@@ -1,7 +1,7 @@
 
     <a routerLink=""><div class="logo_image"></div></a>
     <input type="text" class="search" placeholder="Search" [(ngModel)]="searchRequest" (keyup.enter)="onKeyUp()">
-    <div *ngIf ="!profile ; then outside else inside"></div>
+    <div *ngIf ="auth.user$ | async as user ; then inside else outside"></div>
     <ng-template #outside>
         <div class="login" (click)="logIn()"> LOGIN</div>
        

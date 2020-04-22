@@ -23,8 +23,8 @@ export class SProfileService {
   this.profiles = this.dbCollection.snapshotChanges().pipe(
     map(actions => actions.map(a => {
       const data = a.payload.doc.data() as Profile;
-      const id = a.payload.doc.id;
-      return { id, ...data };
+      const uid = a.payload.doc.id;
+      return { uid, ...data };
     }))
   );
 
@@ -40,14 +40,14 @@ export class SProfileService {
 
   deleteProfile(student: Profile){
 
-    this.profileDoc=this.db.doc(`StudentProfile/${student.id}`);
+    this.profileDoc=this.db.doc(`StudentProfile/${student.uid}`);
     this.profileDoc.delete();
 
   }
 
   updateProfile(stu: Profile){
 
-    this.profileDoc=this.db.doc(`StudentProfile/${stu.id}`);
+    this.profileDoc=this.db.doc(`StudentProfile/${stu.uid}`);
     this.profileDoc.update(stu);
    
   }

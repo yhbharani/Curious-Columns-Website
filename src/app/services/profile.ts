@@ -2,7 +2,7 @@
 
 export interface Profile {
 
-id?: string;
+uid?: string;
 email?: string;
 password?: string;
 Enrollment?: number;

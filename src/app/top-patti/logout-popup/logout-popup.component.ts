@@ -10,12 +10,10 @@ import { Router } from '@angular/router';
 export class LogoutPopupComponent implements OnInit {
 
 
-  profile: firebase.User;
 
   constructor(public auth: AuthService, private route: Router) { }
 
   ngOnInit(): void {    
-    this.auth.getUserState().subscribe( user => {this.profile = user;});
   }
 
   logOut(){
